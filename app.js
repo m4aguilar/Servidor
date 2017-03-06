@@ -1,27 +1,58 @@
 var express = require('express');
-var path = require('path');
 var bodyParser = require('body-parser');
-var router = express.Router();
-
+var mongoose = require('mongoose');
+var methodOverride = require("method-override");
+var path = require("path");
 var app = express();
 
-//app.use(express.static(__dirname + '/public'));
-app.use(express.static(path.join(__dirname, 'public')));
+//////*******Conexión a base de datos*********//////
+mongoose.connect('mongodb://localhost/servidor', function(err, res){
+  if(err) throw err;
+  console.log('Conectado a la base de datos');
+});
 
-//Para renderizar los fichero hatml de la carpeta views
-app.set('views', __dirname + '/views');
-app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'html');
+//////*******Importando modelos y controladores*********//////
+var models = require('./models/admin')(app, mongoose);
+var AdminCtrl = require('./controllers/admin');
 
-//Para decirle a express que se va a usar body parser
+
+
+
+// Middlewares
+//bodyParser Permite parsear JSON.
+//methodOverride: Permite implementar y personalizar métodos HTTP.
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(methodOverride());
 
-var routes = require('./routes/index');
+//Se hace la carpeta publica
+//app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 
-//Redirecciona las direcciones '/'
-app.use('/', routes);
+var router = express.Router();
+
+//////*******Rutas modelos y controladores*********//////
+router.route('/admins')
+ .get(AdminCtrl.findAll)
+ .post(AdminCtrl.add);
+
+router.route('/admins/:id')
+ .get(AdminCtrl.findById)
+ .put(AdminCtrl.update)
+ .delete(AdminCtrl.delete);
 
 
-//Escucha por el puerto 8000
-app.listen(8000);
+ app.use('/router', router);
+
+
+// Index
+router.get('/', function(req, res) {
+ res.sendfile("views/index.html");
+});
+
+app.use(router);
+
+// Start server
+app.listen(8000, function() {
+ console.log("Node server running on http://localhost:8000");
+});
