@@ -59,13 +59,22 @@ exports.delete = function(req, res) {
   });
 };
 */
+
+
+
+
+
+
+
 //Carga la pagina de login
 exports.login = function(req, res){
 
   console.log('Dentro del get login del controlador');
+
   res.render('login.html');
   //var name = req.body.name;
   //console.log('Nombre: ', name);
+  return;
 
 };
 
@@ -73,10 +82,9 @@ exports.login = function(req, res){
 //Comprobar administrador y dar acceso
 exports.comprobar = function(req, res){
   console.log('Dentro del post de comprobar');
-  res.render('admin.html');
-  //var name = req.body.name;
+  console.log(req.body.name);
+
   //var name = JSON.stringify(req.body);
   //var pass = req.body.password;
-  //console.log(name);
-
+  return;
 };

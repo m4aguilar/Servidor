@@ -30,13 +30,13 @@ app.engine('html', require('ejs').renderFile)
 app.set('view engine', 'ejs')
 
 app.use('/', routes);
-app.use('/admin', admin);
+//app.use('/admin', admin);
 
 //Middlewares
 //bodyParser Permite parsear JSON.
 //methodOverride: Permite implementar y personalizar métodos HTTP.
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride());
 
 // app.get('/', function (req, res, next) {
