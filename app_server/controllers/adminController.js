@@ -74,7 +74,7 @@ exports.login = function(req, res){
   res.render('login.html');
   //var name = req.body.name;
   //console.log('Nombre: ', name);
-  return;
+
 
 };
 
@@ -86,5 +86,5 @@ exports.comprobar = function(req, res){
 
   //var name = JSON.stringify(req.body);
   //var pass = req.body.password;
-  return;
+  res
 };

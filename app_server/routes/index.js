@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var adminController = require('../controllers/adminController');
-var app = express();
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   console.log("Routes index");
@@ -12,6 +12,7 @@ router.get('/', function(req, res, next) {
 
 //Rutas de usuario
 router.get('/admin', adminController.login);
-router.post('/admin', adminController.comprobar);
+router.route('/admin')
+ .post(adminController.comprobar);
 
 module.exports = router;
