@@ -12,7 +12,14 @@ router.get('/', function(req, res, next) {
 
 //Rutas de usuario
 router.get('/admin', adminController.login);
+
 router.route('/admin')
  .post(adminController.comprobar);
+
+
+
+
+router.get('/ubicaciones', adminController.ubicaciones);
+router.get('/estadisticas', adminController.estadisticas);
 
 module.exports = router;

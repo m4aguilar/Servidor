@@ -60,12 +60,6 @@ exports.delete = function(req, res) {
 };
 */
 
-
-
-
-
-
-
 //Carga la pagina de login
 exports.login = function(req, res){
 
@@ -74,17 +68,19 @@ exports.login = function(req, res){
   res.render('login.html');
   //var name = req.body.name;
   //console.log('Nombre: ', name);
-
-
 };
-
-
 //Comprobar administrador y dar acceso
 exports.comprobar = function(req, res){
-  console.log('Dentro del post de comprobar');
-  console.log(req.body.name);
-
+  //console.log('Dentro del post de comprobar');
+  var name = req.body.name;
+  res.render("dashboard.html");
   //var name = JSON.stringify(req.body);
   //var pass = req.body.password;
-  res
+};
+
+exports.ubicaciones = function(req, res){
+  res.render('location.html', {title:'hola mundo'});
+};
+exports.estadisticas = function(req, res){
+  res.render('statistics.html');
 };
