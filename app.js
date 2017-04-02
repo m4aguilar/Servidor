@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var path = require("path");
+var ejs = require("ejs");
 
 var app = express();
 
@@ -9,6 +10,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules/bootstrap/dist')));
+app.use(express.static(path.join(__dirname, 'node_modules/jquery/dist')));
+app.use(express.static(path.join(__dirname, 'app_server/js')));
 app.set('views', path.join(__dirname, 'app_server', 'views'));
 
 app.engine('html', require('ejs').renderFile)
@@ -23,10 +26,10 @@ var routes = require('./app_server/routes/index');
 
 
 //////*******Conexión a base de datos*********//////
-// mongoose.connect('mongodb://localhost/servidor', function(err, res){
-//   if(err) throw err;
-//   console.log('Conectado a la base de datos');
-// });
+mongoose.connect('mongodb://localhost/servidor', function(err, res){
+  if(err) throw err;
+  console.log('Conectado a la base de datos');
+});
 
 //Se hace la carpeta publica
 

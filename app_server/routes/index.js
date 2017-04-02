@@ -16,6 +16,10 @@ router.get('/admin', adminController.login);
 router.route('/admin')
  .post(adminController.comprobar);
 
+ router.route('/editLocation')
+  .get(adminController.editLocation);
+
+
 
 
 

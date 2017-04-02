@@ -1,6 +1,9 @@
 var mongoose = require('mongoose');
-var path = require('path');
-var admin = new (require('../models/admin'));
+var adminModel = new (require('../models/admin'));
+var locacionModel = new (require('../models/location'));
+var admins = mongoose.model("Admin");
+var locations = mongoose.model("Location");
+
 
 
 /*
@@ -66,21 +69,49 @@ exports.login = function(req, res){
   console.log('Dentro del get login del controlador');
 
   res.render('login.html');
-  //var name = req.body.name;
-  //console.log('Nombre: ', name);
+
 };
+
 //Comprobar administrador y dar acceso
 exports.comprobar = function(req, res){
-  //console.log('Dentro del post de comprobar');
+  console.log('Dentro del post de comprobar');
   var name = req.body.name;
-  res.render("dashboard.html");
-  //var name = JSON.stringify(req.body);
-  //var pass = req.body.password;
+  var password = req.body.password;
+
+
+  admins.find({name:name, password:password}, function(err, administradores){
+    if(err) throw err;
+    if(administradores == false){
+      console.log("Login incorrecto");
+    }else{
+      console.log("Login correcto");
+      res.render("dashboard.html");
+    }
+  });
 };
 
 exports.ubicaciones = function(req, res){
-  res.render('location.html', {title:'hola mundo'});
+  locations.find({}, function(err, ubicaciones){
+    if(err) throw err;
+    //console.log(ubicaciones);
+    res.render('location.html', {ubicaciones:ubicaciones});
+  });
+
 };
+
+exports.editLocation = function(req, res){
+  var num = req.query.num;
+  locations.find({numero: num}, function(err, location){
+    if(err){
+      throw err;
+    }else{
+      res.render('editLocation.html', {location: location});
+    }
+  });
+};
+
+
+
 exports.estadisticas = function(req, res){
   res.render('statistics.html');
 };

@@ -1,0 +1,14 @@
+Nombre base de datos: servidor
+Collecciones: admins, preguntas, locations
+
+
+
+Para insertar una location:
+
+db.locations.insert({numero:'1', latitud:'36.721626', longitud:'-4.418608', pista:'Pintor y escultor Malagueño'})
+db.locations.insert({numero:'2', latitud:'36.721239', longitud:'-4.417209', pista:'Su construcción se produjo en el siglo I a.C'})
+db.locations.insert({numero:'3', latitud:'36.720992', longitud:'-4.415711', pista:'Es una fortificación musulmana'})
+
+Para insertar preguntas
+
+db.questions.insert({question:'¿En qué año nació Pablo Picasso?', answer1:'1850', answer2:'1881', answer3:'1901', answer4:'1889', correctAnswer: '1881', place:'Museo Pablo Picasso'})

@@ -6,31 +6,46 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Proyecto</title>
 		<!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
 		<link rel="stylesheet" type="text/css" href="/stylesheet/style.css" media="screen" />
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="jquery.min.js"></script>
+
+		<script src="save.js"></script>
 
 	</head>
 
 	<body class = "container">
-    <h2>Ubicacion</h2>
+		<h2>Modificar ubicación</h2>
+		<form class="" action="" method="post" id="form-edit">
+			<div class="row">
+				<div class="col-md-6">
+					<label class="">Longitud</label>
+					<input type="String" class="form-control" name="longitud" value="<%= location[0].longitud %>">
+				</div>
+			</div>
 
-    <div class="row">
-      <div class="col-md-6">
-        <label for="">Longitud</label>
-        <input type="number" name="longitud" value="">
-      </div>
-    </div>
+			<div class="row">
+				<div class="col-md-6">
+					<label for="">Latitud</label>
+					<input type="String" class="form-control" name="latitud" value="<%= location[0].latitud %>">
+				</div>
+			</div>
 
-    <div class="row">
-      <div class="col-md-6">
-        <label for="">Latitud</label>
-        <input type="number" name="latitud" value="">
-      </div>
-    </div>
+			<div class="row">
+				<div class="col-md-6">
+					<label for="">Pista</label>
+					<input type="String" class=" form-control" name="pista" value="<%= location[0].pista %>">
+				</div>
+			</div>
+			<div class="">
+				<br>
+				<button type="submit" class="btn btn-default" name="button" id="save">Guardar</button>
+			</div>
+		</form>
 
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	  <!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="js/bootstrap.min.js"></script>
 	</body>
