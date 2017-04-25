@@ -1,12 +1,14 @@
 var mongoose = require("mongoose");
 
 var locationSchema = new mongoose.Schema({
-  _id: {type: String},
   numero: {type: String},
+  lugar: {type: String},
   latitud: {type: String},
   longitud: {type: String},
   pista: {type: String}
-});
+},
+  {versionKey: false}
+);
 
 
 //1º parámetro: el nombre del modelo

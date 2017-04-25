@@ -26,7 +26,7 @@ var routes = require('./app_server/routes/index');
 
 
 //////*******Conexión a base de datos*********//////
-mongoose.connect('mongodb://localhost/servidor', function(err, res){
+mongoose.connect('mongodb://localhost/servidor', function(err, db){
   if(err) throw err;
   console.log('Conectado a la base de datos');
 });
@@ -54,12 +54,6 @@ app.listen(8000, function(req, res) {
  console.log("Node server running on http://localhost:8000");
 });
 
-// catch 404 and forward to error handler
-// app.use(function(req, res, next) {
-//   var err = new Error('Not Found');
-//   err.status = 404;
-//   next(err);
-// });
 
 
 module.exports = app;

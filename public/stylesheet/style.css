@@ -11,3 +11,13 @@
 .etiqueta{
 	font-size: 20px;
 }
+
+.glyphicon{
+	color: black;
+	font-size: 18px;
+}
+
+.boton-pregunta{
+	background-color: #00BFFF;
+	border-color: black;
+}

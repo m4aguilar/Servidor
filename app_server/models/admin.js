@@ -5,7 +5,9 @@ var adminSchema = new mongoose.Schema({
   _id: {type: String},
   email: {type: String},
   password: {type: String}
-});
+},
+  {versionKey: false}
+);
 
 
 //1º parámetro: el nombre del modelo
