@@ -3,6 +3,7 @@ var router = express.Router();
 var adminController = require('../controllers/adminController');
 var questionController = require('../controllers/questionController');
 var locationController = require('../controllers/locationController');
+var gamesController = require('../controllers/gamesController');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -18,6 +19,9 @@ router.get('/admin', adminController.login);
 router.route('/admin')
  .post(adminController.comprobar);
 
+router.route('/logout')
+  .get(adminController.logout);
+
  router.route('/editLocation')
   .get(locationController.editLocation);
 
@@ -30,7 +34,7 @@ router.route('/createLocation')
   .post(locationController.saveLocation);
 
 router.route('/deleteLocation')
-  .get(locationController.deleteLocation); 
+  .get(locationController.deleteLocation);
 
 router.route('/questions')
   .get(questionController.seeQuestions);
@@ -52,5 +56,9 @@ router.route('/deleteQuestion')
 
 router.get('/ubicaciones', locationController.ubicaciones);
 router.get('/estadisticas', adminController.estadisticas);
+
+//Routes gamesController
+router.route('/games')
+  .get(gamesController.seeGames);
 
 module.exports = router;

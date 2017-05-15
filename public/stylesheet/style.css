@@ -21,3 +21,10 @@
 	background-color: #00BFFF;
 	border-color: black;
 }
+
+.map{
+	width: 100%;
+  height: 450px;
+	width: 450px;
+  background-color: grey;
+}

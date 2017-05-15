@@ -18,10 +18,23 @@
 	</head>
 
 	<body class = "container">
+		<div class="navbar navbar-default navbar-fixed-top">
+			<div class="col-md-6">
+				<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+				Usuario: <%= name %>
+			</div>
+			<div class="col-md-6">
+				<a href="/logout">
+					<button type="button" class="btn btn-default">
+						<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Cerrar sesión
+					</button>
+				</a>
+			</div>
+		</div>
     <h2>Preguntas</h2>
     <h3>Preguntas de la ubicación <%= num %>: <%= place %> </h3>
     <div class="text-right" >
-      <a href="http://192.168.1.136:8000/createQuestion/?numL=<%= num %>">
+      <a href="http://localhost:8000/createQuestion/?numL=<%= num %>">
         <button type="button" class="btn btn-default boton-pregunta">
           <span class="glyphicon glyphicon-plus icon"></span> Nueva pregunta
         </button>
@@ -52,12 +65,12 @@
             <th><%= question.answer4 %></th>
 	    			<th><%= question.correctAnswer %></th>
             <th class="text-center">
-							<a href="http://"+DIR+":8000/editQuestion/?numL=<%= question.numLocation.numLoc %>&numQ=<%= question.numLocation.numQuest %>">
+							<a href="http://localhost:8000/editQuestion/?numL=<%= question.numLocation.numLoc %>&numQ=<%= question.numLocation.numQuest %>">
 								<span class="glyphicon glyphicon-pencil"></span>
 							</a>
 						</th>
 						<th class="text-center">
-							<a href="http://192.168.1.136:8000/deleteQuestion/?numL=<%= question.numLocation.numLoc %>&numQ=<%= question.numLocation.numQuest %>">
+							<a href="http://localhost:8000/deleteQuestion/?numL=<%= question.numLocation.numLoc %>&numQ=<%= question.numLocation.numQuest %>">
 								<span class="glyphicon glyphicon-trash"></span>
 							</a>
 						</th>

@@ -3,8 +3,19 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var path = require("path");
 var ejs = require("ejs");
+var cookieParser = require("cookie-parser");
+var session = require("express-session");
 
 var app = express();
+
+//Sesiones
+app.use(cookieParser());
+app.use(session({
+  secret : "keyboard cat",
+  resave: false,
+  saveUninitialized: true
+}));
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

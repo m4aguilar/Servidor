@@ -8,19 +8,16 @@ var locations = mongoose.model("Location");
 
 //Carga la pagina de login
 exports.login = function(req, res){
-
-  console.log('Dentro del get login del controlador');
-
   res.render('login.html');
-
 };
 
 //Comprobar administrador y dar acceso
 exports.comprobar = function(req, res){
-  console.log('Dentro del post de comprobar');
+
   var name = req.body.name;
   var password = req.body.password;
-
+  console.log("name: " + name);
+  console.log("password: " + password);
 
   admins.find({name:name, password:password}, function(err, administradores){
     if(err) throw err;
@@ -28,13 +25,42 @@ exports.comprobar = function(req, res){
       console.log("Login incorrecto");
     }else{
       console.log("Login correcto");
-      res.render("dashboard.html");
+      req.session.name = name;
+      console.log("Datos de sesion: ");
+      console.log("ID: " + req.sessionID);
+      if(req.session.name){
+        console.log("Bienvenido " + req.session.name);
+      }else{
+        console.log("Bienvenido usuario desconocido");
+      }
+      res.render("dashboard.html", {
+        name: req.session.name
+      });
     }
   });
 };
 
-
-
 exports.estadisticas = function(req, res){
-  res.render('statistics.html');
+  if(req.session.name){
+    res.render('statistics.html',{
+      name: req.session.name
+    });
+  }else{
+    res.redirect("/admin");
+    res.sendFile("/Migit/Servidor/app_server/views/login.html");
+  }
+
 };
+
+exports.logout = function(req, res){
+  if(req.session.name){
+    req.session.destroy();
+    console.log("Sesión cerrada");
+    // res.render("login.html");
+    res.redirect("/admin");
+    res.sendFile("/Migit/Servidor/app_server/views/login.html");
+  }else{
+    res.redirect("/admin");
+    res.sendFile("/Migit/Servidor/app_server/views/login.html");
+  }
+}

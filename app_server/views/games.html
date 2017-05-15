@@ -6,15 +6,31 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Proyecto</title>
 		<!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
 		<link rel="stylesheet" type="text/css" href="/stylesheet/style.css" media="screen" />
 
-	</head>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="jquery.min.js"></script>
 
+	</head>
 	<body class = "container">
-		<div class="navbar navbar-default navbar-fixed-top">
-			<div class="col-md-6">
+		<h2>Juegos</h2>
+
+			<div class="row">
+				<div class="col-md-6">
+					<h3>Juegos creados</h3>
+					<p>
+						Aquí se muestran los juegos creados
+					</p>
+				</div>
+		    <div class="map col-md-6" id="map">
+				</div>
+
+			</div>
+
+		<!-- <div class="navbar navbar-default navbar-fixed-top">
+			<div class="col-md-6" id="name">
 				<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 				Usuario: <%= name %>
 			</div>
@@ -25,14 +41,22 @@
 					</button>
 				</a>
 			</div>
-		</div>
-    <h2>Estadísticas de Usuarios</h2>
+		</div> -->
 
-    Tabla con las estadisticas
 
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+
+    <script type="text/javascript" src="maps.js" data="<%= locations %>"></script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClUPZvRodY21-Hg6rHdwWdVAcapSF5Zeo&callback=initMap">
+    </script>
+
 	  <!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="js/bootstrap.min.js"></script>
+
+
+
+
+
 	</body>
 </html>

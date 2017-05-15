@@ -10,9 +10,24 @@
 
 		<link rel="stylesheet" type="text/css" href="/stylesheet/style.css" media="screen" />
 
+
 	</head>
 
+
 	<body class = "container">
+		<div class="navbar navbar-default navbar-fixed-top">
+			<div class="col-md-6">
+				<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+				Usuario: <%= name %>
+			</div>
+			<div class="col-md-6">
+				<a href="/logout">
+					<button type="button" class="btn btn-default">
+						<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Cerrar sesión
+					</button>
+				</a>
+			</div>
+		</div>
     <div>
         <div class="row">
           <div class="text-center col-md-12 ">
@@ -29,6 +44,12 @@
               <label class="etiqueta" for="">Estadísticas de Usuario</label>
               <a href="/estadisticas">
                 <img class="" src="/images/users220.png" alt="users">
+              </a>
+            </div>
+						<div class="col-md-6">
+              <label class="etiqueta" for="">Juegos</label>
+              <a href="/games">
+                <img class="" src="/images/games.png" alt="">
               </a>
             </div>
           </div>
