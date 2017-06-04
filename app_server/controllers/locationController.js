@@ -63,7 +63,10 @@ exports.saveEditLocation = function(req, res){
           if(err){
             throw err;
           }else{
-            res.render('location.html', {ubicaciones:ubicaciones});
+            res.render('location.html', {
+              name: req.session.name,
+              ubicaciones: ubicaciones
+            });
           }
         });
       }
@@ -115,7 +118,10 @@ exports.saveLocation = function(req, res){
           if(err){
             throw err;
           }else{
-            res.render('location.html', {ubicaciones})
+            res.render('location.html', {
+              ubicaciones,
+              name: req.session.name
+            })
           }
         });
       }
@@ -143,7 +149,10 @@ exports.deleteLocation = function(req, res){
           if(err){
             throw err;
           }else{
-            res.render('location.html', {ubicaciones})
+            res.render('location.html', {
+              ubicaciones,
+              name: req.session.name
+            })
           }
         });
       }

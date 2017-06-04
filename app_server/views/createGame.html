@@ -7,76 +7,38 @@
 		<title>Proyecto</title>
 		<!-- Bootstrap -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
-
 		<link rel="stylesheet" type="text/css" href="/stylesheet/style.css" />
 
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="../jquery.min.js"></script>
 		<script src="../jqBootstrapValidation.js"></script>
 
-		<!-- <script>
-  		$(function () { $("input,select,textarea").not("[type=submit]").jqBootstrapValidation(
-
-				submitError: function ($form, event, errors) {
-		      /* ... */
-					alert("Error al enviar formulario");
-		    }
-				submitSuccess: function ($form, event) {
-					 /* ... */
-					 alert("Éxito al enviar formulario");
-				 }
-
-			); } );
-		</script> -->
 	</head>
-
 	<body class = "container">
 		<div align="rigth">
 			<button type="button" class="btn btn-default btn-sm" onclick="history.back()">
 					<span class="glyphicon glyphicon-arrow-left"></span> Left
 				</button>
 		</div>
-    <h1>Nueva ubicación</h1>
+    <h1>Nuevo Game</h1>
     <form class="" action="" method="post" id="form-edit">
 			<div class="row">
 				<div class="col-md-6">
 					<label class="">Número</label>
-					<input type="number" class="form-control" name="numero" value="<%= num  %>" readonly>
+					<input type="number" class="form-control" name="number" value="<%= num  %>" readonly>
 				</div>
 			</div>
       <div class="row">
 				<div class="col-md-6">
-					<label class="">Lugar</label>
-					<input type="String" class="form-control" name="lugar" required>
+					<label class="">Número de puntos</label>
+					<input type="String" class="form-control" name="nPoints" required>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-6">
-					<label class="">Longitud</label>
-					<input type="String" class="form-control" name="longitud" required>
-				</div>
-			</div>
-      <div class="row">
-				<div class="col-md-6">
-					<label class="">Latitud</label>
-					<input type="String" class="form-control required" name="latitud" required>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6">
-					<label class="">Pista</label>
-					<input type="String" class="form-control required" name="pista" required>
-				</div>
-			</div>
-
 			<div class="">
 				<br>
 				<button type="submit" class="btn btn-default" name="button" id="save">Guardar</button>
-
 			</div>
-
 		</form>
-
 	  <!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="../js/bootstrap.min.js"></script>
 	</body>

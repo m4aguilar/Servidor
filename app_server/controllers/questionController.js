@@ -209,7 +209,8 @@ exports.deleteQuestion = function(req, res){
               res.render('questions.html', {
                 questions:questions,
                 place: location[0].lugar,
-                num: location[0].numero
+                num: location[0].numero,
+                name: req.session.name
               });
             }
           });

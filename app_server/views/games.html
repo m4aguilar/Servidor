@@ -14,23 +14,10 @@
 		<script src="jquery.min.js"></script>
 
 	</head>
+
 	<body class = "container">
-		<h2>Juegos</h2>
-
-			<div class="row">
-				<div class="col-md-6">
-					<h3>Juegos creados</h3>
-					<p>
-						Aquí se muestran los juegos creados
-					</p>
-				</div>
-		    <div class="map col-md-6" id="map">
-				</div>
-
-			</div>
-
-		<!-- <div class="navbar navbar-default navbar-fixed-top">
-			<div class="col-md-6" id="name">
+		<div class="navbar navbar-default navbar-fixed-top">
+			<div class="col-md-6">
 				<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 				Usuario: <%= name %>
 			</div>
@@ -41,22 +28,50 @@
 					</button>
 				</a>
 			</div>
-		</div> -->
-
-
-
-
-    <script type="text/javascript" src="maps.js" data="<%= locations %>"></script>
-    <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClUPZvRodY21-Hg6rHdwWdVAcapSF5Zeo&callback=initMap">
-    </script>
-
+		</div>
+		<div align="rigth">
+			<button type="button" class="btn btn-default btn-sm" onclick="history.back()">
+          <span class="glyphicon glyphicon-arrow-left"></span> Left
+        </button>
+  	</div>
+    <h2>Games</h2>
+    <h3>Tabla con todas los games</h3>
+		<div class="text-right" >
+			<a href="http://localhost:8000/createGame">
+				<button type="button" class="btn btn-default boton-pregunta">
+					<span class="glyphicon glyphicon-plus icon"></span>Nuevo game
+				</button>
+			</a>
+		</div>
+		<table class="table table-hover table-condensed" id="boton">
+			<thead>
+				<tr>
+					<th>Número</th>
+          <th>Nº de puntos</th>
+					<th>Ver juego</th>
+					<th>Eliminar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% games.forEach(function(game) { %>
+				<tr>
+						<th><%= game.number %></th>
+	    			<th><%= game.nPoints %></th>
+						<th class="">
+							<a href="http://localhost:8000/game/?num=<%= game.number %>">
+								<span class="glyphicon glyphicon-eye-open"></span>
+							</a>
+						</th>
+						<th class="">
+							<a href="http://localhost:8000/deleteGame/?num=<%= game.number %>">
+								<span class="glyphicon glyphicon-trash"></span>
+							</a>
+						</th>
+				</tr>
+				<% }); %>
+			</tbody>
+			</table>
 	  <!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="js/bootstrap.min.js"></script>
-
-
-
-
-
 	</body>
 </html>

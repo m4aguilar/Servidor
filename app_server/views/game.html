@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Proyecto</title>
+		<!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+		<link rel="stylesheet" type="text/css" href="/stylesheet/style.css" media="screen" />
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="../jquery.min.js"></script>
+
+	</head>
+	<body class = "container">
+		<div align="rigth">
+  		<!-- <input class="btn btn-default" value="VOLVER ATRÁS" name="Back2" onclick="history.back()" /> -->
+			<button type="button" class="btn btn-default btn-sm" onclick="history.back()">
+          <span class="glyphicon glyphicon-arrow-left"></span> Left
+        </button>
+  	</div>
+		<h3>Juego número <%= number %></h3>
+
+			<div class="row">
+				<div class="col-md-3">
+					Número de puntos: <%= nPoints %>
+					<div class="distance" id="distance"></div>
+				</div>
+
+		    <div class="map col-md-9" id="map"></div>
+			</div>
+
+
+		<!-- <div class="navbar navbar-default navbar-fixed-top">
+			<div class="col-md-6" id="name">
+				<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+				Usuario: <%= name %>
+			</div>
+			<div class="col-md-6">
+				<a href="/logout">
+					<button type="button" class="btn btn-default">
+						<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Cerrar sesión
+					</button>
+				</a>
+			</div>
+		</div> -->
+
+
+
+
+    <script type="text/javascript" src="../maps.js" data="<%= locations %>"></script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClUPZvRodY21-Hg6rHdwWdVAcapSF5Zeo&callback=initMap">
+    </script>
+
+	  <!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="../js/bootstrap.min.js"></script>
+
+
+
+
+
+	</body>
+</html>
