@@ -2,6 +2,7 @@ var mongoose = require("mongoose");
 
 var locationSchema = new mongoose.Schema({
   numero: {type: String},
+  key: {type: String},
   lugar: {type: String},
   latitud: {type: String},
   longitud: {type: String},

@@ -74,10 +74,11 @@ router.route('/deleteGame')
   .get(gameController.deleteGame);
 
 //Routes api
-router.route('/app')
-  .get(appController.prueba);
-router.route('/app')
-   .post(appController.prueba);
+router.route('/appQuestion')
+  .get(appController.sendQuestion);
+
+router.route('/appQuestion')
+   .post(appController.sendQuestion);
 
 router.route('/appPlace')
   .get(appController.nextLocation);
@@ -85,5 +86,16 @@ router.route('/appPlace')
 router.route('/appPlace')
   .post(appController.nextLocation);
 
+router.route('/check')
+  .get(appController.checkHash);
+
+router.route('/appProgress')
+  .get(appController.appProgress);
+
+router.route('/appMarkers')
+  .get(appController.appMarkers);
+
+  router.route('/appTrail')
+    .get(appController.appTrail);
 
 module.exports = router;
